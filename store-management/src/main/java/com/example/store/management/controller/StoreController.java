@@ -27,17 +27,17 @@ public class StoreController {
         return ResponseEntity.ok().body(storeService.getAllStores());
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<StoreDto> deleteStore(@PathVariable String id){
         return ResponseEntity.ok().body(storeService.deleteStore(id));
     }
 
-    @GetMapping("/{idStore}")
+    @GetMapping("/getProducts/{idStore}")
     public ResponseEntity<List<ProductDto>> getProducts(@PathVariable(name="idStore") String id){
         return ResponseEntity.ok().body(storeService.getProducts(id));
     }
 
-    @DeleteMapping("/{productId}/{idOfStore}")
+    @DeleteMapping("/deleteProduct/{productId}/{idOfStore}")
     public ResponseEntity<ProductDto> deleteProductFromStore(@PathVariable String productId,@PathVariable(name="idOfStore") String id){
         return ResponseEntity.ok().body(storeService.deleteProduct(productId,id));
     }
