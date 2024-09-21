@@ -5,10 +5,9 @@ import com.example.store.management.service.StoreService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @AllArgsConstructor
 @RestController
@@ -20,5 +19,10 @@ public class StoreController {
     @PostMapping("/create")
     public ResponseEntity<StoreDto> createStore(@RequestBody StoreDto storeDto){
         return ResponseEntity.status(HttpStatus.OK).body(storeService.saveStore(storeDto));
+    }
+
+    @GetMapping("/getStores")
+    public ResponseEntity<List<StoreDto>> getAllStores(){
+        return ResponseEntity.ok().body(storeService.getAllStores());
     }
 }

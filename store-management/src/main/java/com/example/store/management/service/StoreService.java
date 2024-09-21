@@ -12,6 +12,9 @@ import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @AllArgsConstructor
 @Service
 public class StoreService {
@@ -34,5 +37,9 @@ public class StoreService {
             productRepository.save(product);
         }
         return storeMapper.convert(store);
+    }
+
+    public List<StoreDto> getAllStores(){
+        return storeRepository.findAll().stream().map(storeMapper::convert).collect(Collectors.toList());
     }
 }
