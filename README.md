@@ -12,6 +12,10 @@
 
 ![image](https://github.com/user-attachments/assets/7fb91b87-32df-4473-a483-5d0a102091b7)
 
+<h1>Delete Product by id</h1>
+
+![image](https://github.com/user-attachments/assets/461a99de-6e9c-4b9f-8f90-8b5b69cf9847)
+
 
 
 
