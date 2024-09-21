@@ -56,4 +56,8 @@ public class ProductService {
 
         return productMapper.convert(product);
     }
+
+    public ProductDto getProduct(String productId){
+       return productMapper.convert( productRepository.findById(productId).get());
+    }
 }
