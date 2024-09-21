@@ -24,7 +24,7 @@ public class ProductController {
         return ResponseEntity.ok().body(productService.deleteProduct(productId));
     }
 
-    @PutMapping("/update/{productId}/{categoryName}")
+    @PutMapping("/register/{productId}/{categoryName}")
     public ResponseEntity<ProductDto> addProductToCategory(@PathVariable String productId, @PathVariable String categoryName){
         return ResponseEntity.ok().body(productService.registerProduct(productId,categoryName));
     }
@@ -33,4 +33,10 @@ public class ProductController {
     public ResponseEntity<ProductDto> getProduct(@PathVariable String productId){
         return ResponseEntity.status(HttpStatus.OK).body(productService.getProduct(productId));
     }
+
+    @PutMapping("/update/{productId}")
+    public ResponseEntity<ProductDto> updateProduct(@PathVariable String productId,@RequestBody ProductDto productDto){
+        return ResponseEntity.status(HttpStatus.OK).body(productService.updateProduct(productId,productDto));
+    }
+
 }

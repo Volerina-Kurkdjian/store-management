@@ -1,6 +1,7 @@
 package com.example.store.management.dto;
 
 import com.example.store.management.entity.Category;
+import com.example.store.management.entity.Store;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
@@ -16,4 +17,6 @@ public class ProductDto {
 
     @JsonIgnore
     private CategoryDto category;
+    @JsonIgnore
+    private StoreDto store;
 }

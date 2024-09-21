@@ -6,6 +6,7 @@ import com.example.store.management.entity.Category;
 import com.example.store.management.entity.Product;
 import com.example.store.management.mapper.CategoryMapper;
 import com.example.store.management.mapper.ProductMapper;
+import com.example.store.management.mapper.StoreMapper;
 import com.example.store.management.repository.CategoryRepository;
 import com.example.store.management.repository.ProductRepository;
 import jakarta.transaction.Transactional;
@@ -20,6 +21,7 @@ public class ProductService {
     private final ProductMapper productMapper;
     private final CategoryRepository categoryRepository;
     private final CategoryMapper categoryMapper;
+    private final StoreMapper storeMapper;
 
     @Transactional
     public ProductDto createProduct(ProductDto productDto){
@@ -59,5 +61,14 @@ public class ProductService {
 
     public ProductDto getProduct(String productId){
        return productMapper.convert( productRepository.findById(productId).get());
+    }
+
+    public ProductDto updateProduct(String productId,ProductDto productDto){
+       Product product= productRepository.findById(productId).get();
+       product.setDescription(productDto.getDescription());
+       product.setName(productDto.getName());
+       product.setPrice(productDto.getPrice());
+
+      return productMapper.convert( productRepository.save(product));
     }
 }
