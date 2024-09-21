@@ -15,5 +15,5 @@ public class ProductDto {
     private Long price;
 
     @JsonIgnore
-    private Category category;
+    private CategoryDto category;
 }
