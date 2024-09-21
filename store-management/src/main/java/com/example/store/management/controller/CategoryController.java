@@ -26,4 +26,6 @@ public class CategoryController {
     public ResponseEntity<List<ProductDto>> getProducts(@PathVariable String id){
         return ResponseEntity.status(HttpStatus.OK).body(categoryService.getProducts(id));
     }
+
+
 }

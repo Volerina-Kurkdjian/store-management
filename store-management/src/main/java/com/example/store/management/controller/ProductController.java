@@ -23,4 +23,9 @@ public class ProductController {
     public ResponseEntity<ProductDto> deleteProduct(@PathVariable String productId){
         return ResponseEntity.ok().body(productService.deleteProduct(productId));
     }
+
+    @PutMapping("/update/{productId}/{categoryName}")
+    public ResponseEntity<ProductDto> addProductToCategory(@PathVariable String productId, @PathVariable String categoryName){
+        return ResponseEntity.ok().body(productService.registerProduct(productId,categoryName));
+    }
 }

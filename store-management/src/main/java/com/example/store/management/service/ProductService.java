@@ -40,4 +40,20 @@ public class ProductService {
         productRepository.delete(product);
         return productDto;
     }
+
+    public ProductDto registerProduct(String productId, String categoryName){
+        Product product=productRepository.findById(productId).get();
+        Category category=categoryRepository.findByName(categoryName);
+
+        //adding to parent first
+        category.addProduct(product);
+        //adding to child
+        product.setCategory(category);
+        //save parent first
+        categoryRepository.save(category);
+        //save child after
+        productRepository.save(product);
+
+        return productMapper.convert(product);
+    }
 }
