@@ -36,7 +36,9 @@
 
 ![image](https://github.com/user-attachments/assets/8fff4a19-0b22-4472-8e6f-08a2b9196890)
 
+<h1>Updating a Category</h1>
 
+![image](https://github.com/user-attachments/assets/40092599-f20f-4619-83cd-b6ecbd0c2827)
 
 
 
