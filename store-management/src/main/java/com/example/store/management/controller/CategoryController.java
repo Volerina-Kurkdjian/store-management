@@ -22,9 +22,14 @@ public class CategoryController {
         return ResponseEntity.status(HttpStatus.CREATED).body(categoryService.saveCategory(categoryDto));
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<List<ProductDto>> getProducts(@PathVariable String id){
         return ResponseEntity.status(HttpStatus.OK).body(categoryService.getProducts(id));
+    }
+
+    @PutMapping("/{categoryId}/{categoryName}")
+    public ResponseEntity<CategoryDto> updateCategory(@PathVariable String categoryId,@PathVariable String categoryName){
+        return ResponseEntity.status(HttpStatus.OK).body(categoryService.updateCategory(categoryId,categoryName));
     }
 
 

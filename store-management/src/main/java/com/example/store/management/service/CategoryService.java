@@ -47,4 +47,9 @@ public class CategoryService {
         return productDtos;
     }
 
+    public CategoryDto updateCategory(String categoryId,String name){
+        Category category=categoryRepository.findById(categoryId).get();
+        category.setName(name);
+        return categoryMapper.convert(categoryRepository.save(category));
+    }
 }
