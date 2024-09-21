@@ -16,6 +16,10 @@
 
 ![image](https://github.com/user-attachments/assets/461a99de-6e9c-4b9f-8f90-8b5b69cf9847)
 
+<h1>Delete Store by id</h1>
+
+![image](https://github.com/user-attachments/assets/1ea0da02-fa04-4770-af38-1346b1a2f289)
+
 
 
 
