@@ -1,6 +1,7 @@
 package com.example.store.management.service;
 
 
+import com.example.store.management.dto.ProductDto;
 import com.example.store.management.dto.StoreDto;
 import com.example.store.management.entity.Product;
 import com.example.store.management.entity.Store;
@@ -12,6 +13,7 @@ import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -47,5 +49,15 @@ public class StoreService {
         StoreDto storeDto=storeMapper.convert( storeRepository.findById(storeId).get());
         storeRepository.deleteById(storeId);
         return storeDto;
+    }
+
+    public List<ProductDto> getProducts(String storeId){
+        Store store=storeRepository.findById(storeId).get();
+        List<ProductDto> productDtoList=new ArrayList<>();
+
+        for(Product product:store.getProduct()){
+            productDtoList.add(productMapper.convert(product));
+        }
+        return productDtoList;
     }
 }

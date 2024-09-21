@@ -1,5 +1,6 @@
 package com.example.store.management.controller;
 
+import com.example.store.management.dto.ProductDto;
 import com.example.store.management.dto.StoreDto;
 import com.example.store.management.service.StoreService;
 import lombok.AllArgsConstructor;
@@ -29,5 +30,10 @@ public class StoreController {
     @DeleteMapping("/{id}")
     public ResponseEntity<StoreDto> deleteStore(@PathVariable String id){
         return ResponseEntity.ok().body(storeService.deleteStore(id));
+    }
+
+    @GetMapping("/{idStore}")
+    public ResponseEntity<List<ProductDto>> getProducts(@PathVariable(name="idStore") String id){
+        return ResponseEntity.ok().body(storeService.getProducts(id));
     }
 }
