@@ -42,4 +42,10 @@ public class StoreService {
     public List<StoreDto> getAllStores(){
         return storeRepository.findAll().stream().map(storeMapper::convert).collect(Collectors.toList());
     }
+
+    public StoreDto deleteStore(String storeId){
+        StoreDto storeDto=storeMapper.convert( storeRepository.findById(storeId).get());
+        storeRepository.deleteById(storeId);
+        return storeDto;
+    }
 }

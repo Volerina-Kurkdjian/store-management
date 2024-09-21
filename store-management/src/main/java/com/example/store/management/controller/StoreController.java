@@ -25,4 +25,9 @@ public class StoreController {
     public ResponseEntity<List<StoreDto>> getAllStores(){
         return ResponseEntity.ok().body(storeService.getAllStores());
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<StoreDto> deleteStore(@PathVariable String id){
+        return ResponseEntity.ok().body(storeService.deleteStore(id));
+    }
 }
