@@ -8,6 +8,11 @@
 
 ![image](https://github.com/user-attachments/assets/e8d4f115-baa1-4054-a255-79fa6ff2950f)
 
+<h1>Get all stores</h1>
+
+![image](https://github.com/user-attachments/assets/7fb91b87-32df-4473-a483-5d0a102091b7)
+
+
 
 
 
