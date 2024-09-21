@@ -24,6 +24,10 @@
 
 ![image](https://github.com/user-attachments/assets/8381883c-5ca3-4af8-a224-50dce1e9d085)
 
+<h1>Register Product to Category</h1>
+
+![image](https://github.com/user-attachments/assets/62de4b10-038f-4baa-9fe4-5a39824eb78e)
+
 
 
 
