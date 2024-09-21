@@ -4,8 +4,10 @@ import com.example.store.management.entity.Category;
 import com.example.store.management.entity.Store;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Builder;
 import lombok.Data;
 
+@Builder
 @Data
 public class ProductDto {
 

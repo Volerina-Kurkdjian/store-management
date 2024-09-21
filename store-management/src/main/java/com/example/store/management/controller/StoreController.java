@@ -19,17 +19,17 @@ public class StoreController {
 
     @PostMapping("/create")
     public ResponseEntity<StoreDto> createStore(@RequestBody StoreDto storeDto){
-        return ResponseEntity.status(HttpStatus.OK).body(storeService.saveStore(storeDto));
+        return ResponseEntity.status(HttpStatus.CREATED).body(storeService.saveStore(storeDto));
     }
 
     @GetMapping("/getStores")
     public ResponseEntity<List<StoreDto>> getAllStores(){
-        return ResponseEntity.ok().body(storeService.getAllStores());
+        return ResponseEntity.status(HttpStatus.OK).body(storeService.getAllStores());
     }
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<StoreDto> deleteStore(@PathVariable String id){
-        return ResponseEntity.ok().body(storeService.deleteStore(id));
+        return ResponseEntity.status(HttpStatus.OK).body(storeService.deleteStore(id));
     }
 
     @GetMapping("/getProducts/{idStore}")
