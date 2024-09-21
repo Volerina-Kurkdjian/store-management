@@ -28,6 +28,10 @@
 
 ![image](https://github.com/user-attachments/assets/62de4b10-038f-4baa-9fe4-5a39824eb78e)
 
+<h1>Get all products from a singlet Store</h1>
+
+![image](https://github.com/user-attachments/assets/c2aa1891-ae1e-47d8-b60a-ee46c7dacdb9)
+
 
 
 
