@@ -32,6 +32,12 @@
 
 ![image](https://github.com/user-attachments/assets/c2aa1891-ae1e-47d8-b60a-ee46c7dacdb9)
 
+<h1>Delete Product from Store</h1>
+
+![image](https://github.com/user-attachments/assets/8fff4a19-0b22-4472-8e6f-08a2b9196890)
+
+
+
 
 
 
