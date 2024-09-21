@@ -20,6 +20,9 @@
 
 ![image](https://github.com/user-attachments/assets/1ea0da02-fa04-4770-af38-1346b1a2f289)
 
+<h1>Create Category</h1>
+
+![image](https://github.com/user-attachments/assets/8381883c-5ca3-4af8-a224-50dce1e9d085)
 
 
 
