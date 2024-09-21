@@ -36,4 +36,9 @@ public class StoreController {
     public ResponseEntity<List<ProductDto>> getProducts(@PathVariable(name="idStore") String id){
         return ResponseEntity.ok().body(storeService.getProducts(id));
     }
+
+    @DeleteMapping("/{productId}/{idOfStore}")
+    public ResponseEntity<ProductDto> deleteProductFromStore(@PathVariable String productId,@PathVariable(name="idOfStore") String id){
+        return ResponseEntity.ok().body(storeService.deleteProduct(productId,id));
+    }
 }

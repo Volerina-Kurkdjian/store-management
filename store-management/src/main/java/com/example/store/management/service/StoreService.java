@@ -60,4 +60,17 @@ public class StoreService {
         }
         return productDtoList;
     }
+
+    public ProductDto deleteProduct(String productId,String storeId){
+        Store store=storeRepository.findById(storeId).get();
+
+        Product product=store.getProduct().stream()
+                .filter(c->c.getProductId().equalsIgnoreCase(productId))
+                .findFirst().get();
+
+        store.getProduct().remove(product);
+        storeRepository.save(store);
+
+       return productMapper.convert(product);
+    }
 }
