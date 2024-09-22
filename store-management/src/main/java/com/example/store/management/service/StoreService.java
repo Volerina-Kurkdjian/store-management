@@ -5,6 +5,7 @@ import com.example.store.management.dto.ProductDto;
 import com.example.store.management.dto.StoreDto;
 import com.example.store.management.entity.Product;
 import com.example.store.management.entity.Store;
+import com.example.store.management.exception.StoreNotFoundException;
 import com.example.store.management.mapper.ProductMapper;
 import com.example.store.management.mapper.StoreMapper;
 import com.example.store.management.repository.ProductRepository;
@@ -72,5 +73,10 @@ public class StoreService {
         storeRepository.save(store);
 
        return productMapper.convert(product);
+    }
+
+    public StoreDto getStoreById(String storeId){
+        Store store=storeRepository.findById(storeId).orElseThrow(()->new StoreNotFoundException("The store doesn't exist"));
+        return storeMapper.convert(store);
     }
 }
