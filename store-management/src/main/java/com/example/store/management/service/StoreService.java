@@ -5,6 +5,7 @@ import com.example.store.management.dto.ProductDto;
 import com.example.store.management.dto.StoreDto;
 import com.example.store.management.entity.Product;
 import com.example.store.management.entity.Store;
+import com.example.store.management.exception.ProductNotFoundException;
 import com.example.store.management.exception.StoreNotFoundException;
 import com.example.store.management.mapper.ProductMapper;
 import com.example.store.management.mapper.StoreMapper;
@@ -47,9 +48,12 @@ public class StoreService {
     }
 
     public StoreDto deleteStore(String storeId){
-        StoreDto storeDto=storeMapper.convert( storeRepository.findById(storeId).get());
-        storeRepository.deleteById(storeId);
-        return storeDto;
+        return storeRepository.findById(storeId)
+                .map(store -> {
+                    StoreDto storeDto=storeMapper.convert(store);
+                    storeRepository.delete(store);
+                    return storeDto;
+                }).orElseThrow(()->new StoreNotFoundException("The store doesn't exist"));
     }
 
     public List<ProductDto> getProducts(String storeId){
@@ -63,11 +67,11 @@ public class StoreService {
     }
 
     public ProductDto deleteProduct(String productId,String storeId){
-        Store store=storeRepository.findById(storeId).get();
+        Store store=storeRepository.findById(storeId).orElseThrow(()->new StoreNotFoundException("The store doesn't exist"));
 
         Product product=store.getProduct().stream()
                 .filter(c->c.getProductId().equalsIgnoreCase(productId))
-                .findFirst().get();
+                .findFirst().orElseThrow(()->new ProductNotFoundException("The product with ID " +productId+" doesn't exist!"));
 
         store.getProduct().remove(product);
         storeRepository.save(store);

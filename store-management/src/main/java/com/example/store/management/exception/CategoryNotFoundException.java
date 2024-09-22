@@ -1,2 +1,8 @@
-package com.example.store.management.exception;public class CategoryNotFoundException {
+package com.example.store.management.exception;
+
+public class CategoryNotFoundException extends RuntimeException{
+
+    public CategoryNotFoundException(String message) {
+        super(message);
+    }
 }

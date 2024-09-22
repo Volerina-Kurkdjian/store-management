@@ -29,6 +29,11 @@ public class ProductController {
         return ResponseEntity.ok().body(productService.registerProduct(productId,categoryName));
     }
 
+    @PutMapping("/addProductToStore/{productId}/{storeId}")
+    public ResponseEntity<ProductDto> registerProductToStore(@PathVariable String productId, @PathVariable String storeId){
+        return ResponseEntity.ok().body(productService.registerProductToStore(productId,storeId));
+    }
+
     @GetMapping("/getProduct/{productId}")
     public ResponseEntity<ProductDto> getProduct(@PathVariable String productId){
         return ResponseEntity.status(HttpStatus.OK).body(productService.getProduct(productId));

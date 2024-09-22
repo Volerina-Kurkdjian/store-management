@@ -5,6 +5,7 @@ import com.example.store.management.dto.CategoryDto;
 import com.example.store.management.dto.ProductDto;
 import com.example.store.management.entity.Category;
 import com.example.store.management.entity.Product;
+import com.example.store.management.exception.CategoryNotFoundException;
 import com.example.store.management.mapper.CategoryMapper;
 import com.example.store.management.mapper.ProductMapper;
 import com.example.store.management.repository.CategoryRepository;
@@ -38,7 +39,7 @@ public class CategoryService {
     }
 
     public List<ProductDto> getProducts(String categoryId){
-        Category category=categoryRepository.findById(categoryId).get();
+        Category category=categoryRepository.findById(categoryId).orElseThrow(()->new CategoryNotFoundException("The category with ID: "+categoryId+" doesn't exist!"));
         List<ProductDto> productDtos=new ArrayList<>();
 
         for(Product product:category.getProduct()){
@@ -48,7 +49,7 @@ public class CategoryService {
     }
 
     public CategoryDto updateCategory(String categoryId,String name){
-        Category category=categoryRepository.findById(categoryId).get();
+        Category category=categoryRepository.findById(categoryId).orElseThrow(()->new CategoryNotFoundException("The category with ID: "+categoryId+" doesn't exist!"));
         category.setName(name);
         return categoryMapper.convert(categoryRepository.save(category));
     }

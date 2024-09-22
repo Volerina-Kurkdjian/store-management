@@ -26,5 +26,35 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<ErrorObject>(errorObject,HttpStatus.NOT_FOUND);
     }
 
+    @ExceptionHandler
+    public ResponseEntity<ErrorObject> handleProductNotFoundException(ProductNotFoundException productNotFoundException,WebRequest request){
+        ErrorObject errorObject=new ErrorObject();
+        errorObject.setStatusCode(HttpStatus.NOT_FOUND.value());
+        errorObject.setMessage(productNotFoundException.getMessage());
+        errorObject.setTimestamp(new Date());
+
+        return new ResponseEntity<ErrorObject>(errorObject,HttpStatus.NOT_FOUND);
+    }
+
+
+    @ExceptionHandler
+    public ResponseEntity<ErrorObject> handleCategoryNotFoundException(CategoryNotFoundException categoryNotFoundException,WebRequest request){
+        ErrorObject errorObject=new ErrorObject();
+        errorObject.setStatusCode(HttpStatus.NOT_FOUND.value());
+        errorObject.setMessage(categoryNotFoundException.getMessage());
+        errorObject.setTimestamp(new Date());
+
+        return new ResponseEntity<ErrorObject>(errorObject,HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler
+    public ResponseEntity<ErrorObject> handleProductAlreadyExistsException(ProductAlreadyExistsException productAlreadyExistsException,WebRequest request){
+        ErrorObject errorObject=new ErrorObject();
+        errorObject.setStatusCode(HttpStatus.NOT_FOUND.value());
+        errorObject.setMessage(productAlreadyExistsException.getMessage());
+        errorObject.setTimestamp(new Date());
+
+        return new ResponseEntity<ErrorObject>(errorObject,HttpStatus.NOT_FOUND);
+    }
 
 }
