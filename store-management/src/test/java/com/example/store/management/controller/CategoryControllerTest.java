@@ -102,7 +102,7 @@ public class CategoryControllerTest {
 
     @Test
     public void CategoryController_UpdateCategory_ReturnCategoryDto()throws Exception{
-        
+
         String categoryId = "1";
         String categoryName = "lactate";
 
